@@ -1,0 +1,56 @@
+.dashboard {
+    .header {
+        display: flex;
+        height: 400px;
+        background: aqua;
+        background-image: url('../assets/images/food-spread.jpeg');
+        .app-logo {
+            width: 25%;
+            img {
+                height: 85px;
+                margin: 25px;
+            }
+        }
+        .app-name {
+            width: 50%;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            font-size: 55px;
+            font-weight: bold;
+            font-style: italic;
+        }
+        .app-login {
+            width: 25%;
+            display: flex;
+            span {
+                margin-left: auto;
+                font-size: 45px;
+                font-weight: bold;
+            }
+        }
+    }
+    .main-body {
+        display: flex;
+        justify-content: space-evenly;
+        margin: 30px 0;
+        .pages {
+            display: flex;
+            flex-direction: column;
+            font-weight: bold;
+            img {
+                height: 200px;
+                border-radius: 10px;
+                transition: transform .5s;
+            }
+            a {
+                margin-bottom: 20px;
+                &:hover {
+                    img {
+                        transform: scale(1.2);
+                    }
+                }
+            }
+        }
+    }
+}

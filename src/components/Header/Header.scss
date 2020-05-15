@@ -1,0 +1,29 @@
+.app-name {
+    text-align: center;
+    top: 0px;
+    position: absolute;
+    left: 40%;
+    font-size: 30px;
+    font-family: -webkit-pictograph;
+    text-shadow: -1px 0px 100px #ffffff;
+    color: black;
+}
+
+.app-logo img {
+    width: 5%;
+    padding: 10px;
+}
+
+.app-login {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin: 15px;
+    &:hover {
+    text-decoration: underline;
+    }
+}
+
+.header {
+    background-image: url('../../assets/images/food-spread.jpeg');
+}

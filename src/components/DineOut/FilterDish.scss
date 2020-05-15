@@ -1,0 +1,17 @@
+.ant-checkbox-group {
+    display: flex;
+    flex-flow: column;
+}
+.filter-group {
+    position: relative;
+    width: 20%;
+    border: 0.1px solid #d0c5c5;
+    margin: 5px;
+    padding: 5px;
+}
+
+.filter-container {
+    position: absolute;
+    width: 100%;
+    top: 19%;
+}
