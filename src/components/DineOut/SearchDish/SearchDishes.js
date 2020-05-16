@@ -48,12 +48,12 @@ const SearchDishes = props => {
                 <TextArea />
             </Modal>
         </div>
-        <div className='cart-btn-container'>
+        {/* <div className='cart-btn-container'>
             <Button className='cart-btn' shape="round" icon={<ShoppingCartOutlined />} onClick={() => setShowPreferences(true)} size={'large'}>
                 Cart
             </Button>
             <CheckOutPopUp />
-        </div>
+        </div> */}
     </div>;
 }
 

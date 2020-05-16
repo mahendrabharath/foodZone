@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Header from '../Header/Header';
 import { List, Avatar, Button, Skeleton } from 'antd';
 import defaultSearch from '../../mockdata/defaulSearch';
 import { AlertOutlined } from '@ant-design/icons';
 import './Orders.scss';
+import reducer from '../../reducer';
+import store, {FoodContext} from '../../store';
 
 const count = 3;
 const fakeDataUrl = `https://randomuser.me/api/?results=${count}&inc=name,gender,email,nat&noinfo`;
@@ -20,6 +22,9 @@ const Orders = props => {
     const [initLoading, setInitLoading] = useState(false);
     const [loading, setLoading] = useState(false);
 
+    // const [state, dispatch] = useReducer(reducer, store);
+    const { state, dispatch } = useContext(FoodContext);
+
     useEffect(() => {
         getData()
     }, [])
@@ -35,6 +40,8 @@ const Orders = props => {
 
     var price = 0;
     const total = defaultSearch.slice(3).map(el => price = price + Number(el.price))
+
+    console.log('Orders ', state)
 
     return <div>
         <Header />

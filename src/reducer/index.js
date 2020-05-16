@@ -1,18 +1,14 @@
-const reducer = (people, action) => {
-    if (action.type == 'chomp') {
-        return people.map(person => {
-            if (person.name == action.payload) {
-                person.alive = false;
-            }
-            return person;
-        })
-    }
-    if (action.type == 'revive') {
-        return people.map(person => {
-            if (person.name == action.payload) {
-                person.alive = true;
-            }
-            return person;
-        })
+import store from "../store";
+
+const reducer = (state = store, action) => {
+    switch(action.type) {
+        case 'SET_ORDER_DATA': {
+            console.log('Reducer called')
+            return {...state, dineOut: 'Check'};
+        }
+
+        default: return state;
     }
 }
+
+export default reducer;

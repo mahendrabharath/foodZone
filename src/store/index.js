@@ -7,6 +7,6 @@ const store = {
     },
     orders: []
 }
-const ThemeContext = React.createContext(themes.light);
+export const FoodContext = React.createContext(store);
 
 export default store;
