@@ -2,9 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import './App.scss';
 import Dashboard from './components/Dashboard';
-import DineOut from './components/DineOut/DineOut';
-import OrderHistory from './components/OrdersHistory'
 
+import DineOut from './components/DineOut/DineOut/DineOut';
+import Orders from './components/Orders/Orders';
+import OrderHistory from './components/OrdersHistory';
 
 function App() {
 
@@ -18,7 +19,10 @@ function App() {
             <DineOut />
           </Route>
           <Route path="/orders">
-            <OrderHistory />
+            <Orders />
+          </Route>
+          <Route path="/order-history">
+              <OrderHistory />
           </Route>
           <Route path="/">
             <Dashboard />

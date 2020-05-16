@@ -50,6 +50,12 @@ class Dashboard extends Component {
                         </Link>
                         Groceries
                     </div>
+                    <div className='pages'>
+                        <Link to='/order-history' onClick={this.onLinkCliked}>
+                            <img src={ AppLogo } alt='logo' />
+                        </Link>
+                        Order Hostry
+                    </div>
                 </div>
             </div>
         );

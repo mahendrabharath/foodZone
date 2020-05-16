@@ -1,5 +1,5 @@
 import React from 'react';
-import DishCard from './DishCard';
+import DishCard from '../DishCard/DishCard';
 
 
 const DishList = props => {
