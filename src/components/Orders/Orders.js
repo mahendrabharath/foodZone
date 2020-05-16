@@ -1,11 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Header from '../Header/Header';
-import { List, Avatar, Button, Skeleton } from 'antd';
+import { List, Avatar, Button, Skeleton, Select, Input } from 'antd';
 import defaultSearch from '../../mockdata/defaulSearch';
 import { AlertOutlined } from '@ant-design/icons';
 import './Orders.scss';
 import reducer from '../../reducer';
-import store, {FoodContext} from '../../store';
+import store, { FoodContext } from '../../store';
+import { withRouter } from 'react-router';
+import Axios from 'axios';
+
+const { Option } = Select;
+const { TextArea } = Input;
 
 const count = 3;
 const fakeDataUrl = `https://randomuser.me/api/?results=${count}&inc=name,gender,email,nat&noinfo`;
@@ -27,6 +32,21 @@ const Orders = props => {
 
     useEffect(() => {
         getData()
+
+        const url = 'https://cd950485.ngrok.io/v1/prm/login'
+        const payload = {
+            "password": "hackathon",
+            "timestamp": "2020-05-16T07:27:31.004Z",
+            "userId": "test1"
+          };
+          debugger
+          Axios.post(url, payload, {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          }).then(el => {
+            console.log('SUccess ', el)
+          }).catch(err => {
+              console.log('Error ',err)
+          })
     }, [])
 
     const getData = async callback => {
@@ -45,31 +65,38 @@ const Orders = props => {
 
     return <div>
         <Header />
+        
         <h3 style={{ textAlign: 'center' }}>Order checkout</h3>
-        <div className="food-list">
-            <List
-                className="demo-loadmore-list"
-                loading={initLoading}
-                itemLayout="horizontal"
-                // loadMore={loadMore}
-                dataSource={defaultSearch.slice(3)}
-                renderItem={item => (
-                    <List.Item
-                    // actions={[<a key="list-loadmore-edit">edit</a>, <a key="list-loadmore-more">more</a>]}
-                    >
-                        <Skeleton avatar title={false} loading={item.loading} active>
-                            <List.Item.Meta
-                                avatar={
-                                    <AlertOutlined />
-                                }
-                                title={<a href="https://ant.design">{item.cuisine}</a>}
-                            // description="Ant Design, a design language for background applications, is refined by Ant UED Team"
-                            />
-                            <div>{item.price}</div>
-                        </Skeleton>
-                    </List.Item>
-                )}
-            />
+        <div className='orders-container'>
+            <div className='special-instructions'>
+                <h3>Special Instructions</h3>
+                <Select
+                    showSearch
+                    placeholder="Select a preference"
+                    onChange={() => { }}
+                >
+                    <Option value="jack">Preference 1</Option>
+                    <Option value="lucy">Preference 2</Option>
+                    <Option value="tom">Preference 3</Option>
+                </Select>
+                <div>
+                    <TextArea />
+                </div>
+            </div>
+            <div className="food-list">
+                <h1>Butter Chicken</h1><span></span>
+                <h3>Punjabi Rasoi</h3>
+                <h5>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </h5>
+            </div>
+            <div className='suggestion-items'>
+                <h3>Suggested Items</h3>
+                <ul>
+                    {suggestion.map(el => <li>
+                        <h3>{el.name}</h3>
+                        <h5>{el.hotel}</h5>
+                    </li>)}
+                </ul>
+            </div>
         </div>
         <div className='total-btn'>
             <div>
@@ -78,18 +105,12 @@ const Orders = props => {
             <div>
                 <Button type="primary">Place Order</Button>
             </div>
-        </div>
-        <div className='suggestion-items'>
-            <h3>Suggested Items</h3>
-            <ul>
-                {suggestion.map(el => <li>
-                    <h3>{el.name}</h3>
-                    <h5>{el.hotel}</h5>
-                </li>)}
-            </ul>
+            <div>
+                <Button onClick={() => props.history.push('/dine-out')} type="primary">Back</Button>
+            </div>
         </div>
 
     </div>
 }
 
-export default Orders;
+export default withRouter(Orders);

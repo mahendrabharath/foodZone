@@ -4,18 +4,32 @@
 
 .food-list {
     width: 60%;
-    margin: 5% 5% 5% 10%;
+    margin: 75px 20px 20px 20px;
     float: left;
 }
 
 .suggestion-items {
-    float: right;
-    background: #fff9e773;
+    // background: #e8e8e673;
     margin: 20px;
+    width: 20%;
+    border-left: 1px solid;
+    padding-left: 2%;
 }
 
 .total-btn {
     position: absolute;
     bottom: 15%;
     right: 20%;
+}
+
+.special-instructions {
+    width: 20%;
+    border-right: 1px solid;
+    padding-right: 2%;
+    margin: 5px;
+    // background: #e8e8e673;
+}
+
+.orders-container {
+    display: flex;
 }
